@@ -1,0 +1,4 @@
+- import_tasks: 01_env.yml
+- import_tasks: 02_pkgInstall.yml
+- import_tasks: 03_gitClone.yml
+- import_tasks: 04_Container.yml

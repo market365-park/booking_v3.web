@@ -1,0 +1,34 @@
+---
+
+- name: Make docker tmp directory
+  file:
+    path: /mnt/mysql
+    state: directory
+    mode: 0755
+
+- name: running DB container
+  docker:
+    name: booking.db
+    image: mariadb
+    state: started
+    ports:
+      - "3306:3306"
+    env:
+        MYSQL_ROOT_PASSWORD: devOps!23
+
+#cnf 파일 카피
+#docker restart booking.db
+#create database booking
+
+- name: running booking container
+  docker:
+    name: booking-con
+    image: booking-img
+    state: started
+    volumes:
+      - /mnt/booking/:/home/booking
+    ports:
+      - 80:80
+    links:
+      - 'mariadb-con:mariadb'
+  

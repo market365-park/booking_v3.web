@@ -1,0 +1,11 @@
+#- name: Stop the firewall service and configure it to stop when the system boots
+#  systemd:
+#    name: firewalld.service
+#    enabled: no
+#    state: stopped
+
+- shell: setenforce 0
+
+- name: Disable SELinux
+  selinux:
+    state: disabled

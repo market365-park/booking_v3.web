@@ -1,0 +1,14 @@
+- hosts: web.booking
+  become: true
+  roles:
+    - web.booking
+
+  vars:
+    REPO_ADDRESS: scm.connected-car.io/scm/devcloud/web.booking.git
+
+  vars_prompt:
+    - name: USERNAME
+      prompt: please enter the username of repository
+
+    - name: PASSWORD
+      prompt: please enter the password of repository

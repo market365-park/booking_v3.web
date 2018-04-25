@@ -1,0 +1,32 @@
+- name: Upgrade the packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: installed
+
+- name: Install docker and git
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - git
+    - docker
+    - python-pip
+    - gcc
+    - python-devel
+    - mysql-devel
+
+- name: Install docker-py
+  pip:
+    name: docker-py
+
+- name: Start docker service
+  systemd:
+    name: docker.service
+    enabled: yes
+    state: started
+

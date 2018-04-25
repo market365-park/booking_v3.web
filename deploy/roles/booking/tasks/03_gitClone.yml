@@ -1,0 +1,13 @@
+- name: Make directory for html source
+  file:
+    path: /mnt/booking
+    state: directory
+    mode: 0755
+
+- name: Git clone html source
+  git:
+    repo: 'http://{{ USERNAME }}:{{ PASSWORD }}@{{ REPO_ADDRESS }}'
+    dest: /mnt/booking
+
+
+#    http://'6632713':'fpahsk9('@scm.connected-car.io/scm/booking/booking.git

@@ -1,0 +1,19 @@
+FROM centos:7
+MAINTAINER double_S <market365.park@gmail.com>
+
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN yum update -y
+RUN yum install -y git python-pip mod_wsgi MySQL-python
+RUN pip install django==1.9.7
+RUN echo -e "\nWSGIScriptAlias / /home/booking/MRBS/wsgi.py\nWSGIDaemonProcess MRBS python-path=/home/booking\nWSGIProcessGroup MRBS\n\n<Directory /home/booking/MRBS>\n<Files wsgi.py>\nRequire all granted\n</Files>\n</Directory>\n\nAlias /static/ /home/booking/www_static/\n<Directory /home/booking/www_static>\nRequire all granted\n</Directory>" >> /etc/httpd/conf/httpd.conf
+
+RUN mkdir /home/booking
+RUN chown -R apache:apache /home/booking
+RUN chmod -R 700 /home/booking
+
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
+VOLUME /home/booking
+
+
+EXPOSE 80
