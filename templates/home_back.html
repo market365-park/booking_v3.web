@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheet %}
+<link href="{% static 'css/fullcalendar.css' %}" rel='stylesheet' />
+<link href="{% static 'css/fullcalendar.print.css' %}" rel='stylesheet' media='print' />
+<link href="{% static 'css/scheduler.css' %}" rel='stylesheet' />
+
+<style>
+	#wrap {
+		width: 1100px;
+		margin: 0 auto;
+		}
+
+	#external-events {
+		float: left;
+		width: 150px;
+		padding: 0 10px;
+		text-align: left;
+		}
+
+	#external-events h4 {
+		font-size: 16px;
+		margin-top: 0;
+		padding-top: 1em;
+		}
+
+	.external-event { /* try to mimick the look of a real event */
+		margin: 10px 0;
+		padding: 2px 4px;
+		background: #3366CC;
+		color: #fff;
+		font-size: .85em;
+		cursor: pointer;
+		}
+
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 11px;
+		color: #666;
+		}
+
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+		}
+
+	#calendar {
+/* 		float: right; */
+        margin: 0 auto;
+		width: 900px;
+		background-color: transparent;
+		}
+
+</style>
+{% endblock stylesheet %}
+
+{% block script %}
+<script>
+        var rooms = [];
+        {% for room in rooms %}
+        rooms.push({
+            id: '{{ room.room_id }}',
+            title: '{{ room.room_name }}',
+            eventColor: '{{ room.event_color }}'
+        });
+        {% endfor %}
+
+        var room_bookings = [];
+        {% for room_booking in room_bookings %}
+        room_bookings.push({
+            id: '{{ room_booking.id }}',
+            resourceId: '{{ room_booking.room_id }}',
+            start: '{{ room_booking.start_time | date:"c"}}',
+            end: '{{ room_booking.end_time | date:"c"}}',
+            title: '{{ room_booking.title }}'
+        });
+        {% endfor %}
+
+        var nickname = "{{ user.first_name }}";
+        var teamname = "{{ user.last_name }}";
+        var phone = "{{ user.phone }}";
+
+	$(document).ready(function() {
+
+
+	    var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		/*  className colors
+
+		className: default(transparent), important(red), chill(pink), success(green), info(blue)
+
+		*/
+
+
+		/* initialize the external events
+		-----------------------------------------------------------------*/
+
+		$('#external-events div.external-event').each(function() {
+
+			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+			// it doesn't need to have a start or end
+			var eventObject = {
+				title: $.trim($(this).text()) // use the element's text as the event title
+			};
+
+			// store the Event Object in the DOM element so we can get to it later
+			$(this).data('eventObject', eventObject);
+
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
+
+		});
+
+
+		/* initialize the calendar
+		-----------------------------------------------------------------*/
+
+		var calendar =  $('#calendar').fullCalendar({
+			schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+			header: {
+				center: 'title',
+				left: 'agendaDay,agendaWeek,month',
+				right: 'prev,next today'
+			},
+			editable: true,
+			firstDay: 0, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+			selectable: true,
+			defaultView: 'agendaDay',
+			axisFormat: 'h:mm',
+
+                            views: {
+                    agendaDay: { // name of view
+                        titleFormat: 'ddd, MMMM D',
+                        groupByResource: true,
+                        // other view-specific options here
+                    },
+                    agendaWeek: {
+                        titleFormat: 'D, MMMM',
+                    },
+                    month: {
+                        titleFormat: 'MMMM, YYYY',
+
+                    }
+                },
+            nowIndicator: true,
+		    allDaySlot: false,
+            minTime: "07:00:00",
+            maxTime: "20:00:00",
+            businessHours: {
+            // days of week. an array of zero-based day of week integers (0=Sunday)
+                dow: [1, 2, 3, 4, 5], // Monday - Thursday
+                start: '08:00', // a start time (10am in this example)
+                end: '19:00' // an end time (6pm in this example)
+            },
+			selectHelper: true,
+			selectOverlap: false,
+            selectable: true,
+			select: function(start, end, allDay) {
+				var title = prompt('Event Title:');
+				if (title) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay
+						},
+						true // make the event "stick"
+					);
+				}
+				calendar.fullCalendar('unselect');
+			},
+                  resources: rooms,
+			events: room_bookings,
+		});
+
+
+	});
+
+</script>
+
+<script src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/scheduler.js' %}"></script>
+
+{% endblock script %}
+
+{% block content %}
+<!-- main -->
+<div id='calendar'></div>
+<!-- main -->
+<main role="main-home-wrapper" class="container">
+    <div class="row">
+        <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <article role="pge-title-content">
+                <header>
+                    <h2><span>AID</span>ABC를 중심으로 MECA를 선도!</h2>
+                </header>
+                <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
+            </article>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
+    </div>
+</main>
+
+<!-- main -->
+{% endblock content %}
+
+

@@ -15,12 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import return_room_view
+from .views import HomeView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    path('', return_room_view, name='home'),
-
-    path('room/', include('room.urls',)),
+    path('', HomeView.as_view(), name='home'),
 ]

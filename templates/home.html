@@ -6,254 +6,161 @@
 <link href="{% static 'css/scheduler.css' %}" rel='stylesheet' />
 
 <style>
-	#wrap {
-		width: 1100px;
-		margin: 0 auto;
-		}
-
-	#external-events {
-		float: left;
-		width: 150px;
-		padding: 0 10px;
-		text-align: left;
-		}
-
-	#external-events h4 {
-		font-size: 16px;
-		margin-top: 0;
-		padding-top: 1em;
-		}
-
-	.external-event { /* try to mimick the look of a real event */
-		margin: 10px 0;
-		padding: 2px 4px;
-		background: #3366CC;
-		color: #fff;
-		font-size: .85em;
-		cursor: pointer;
-		}
-
-	#external-events p {
-		margin: 1.5em 0;
-		font-size: 11px;
-		color: #666;
-		}
-
-	#external-events p input {
-		margin: 0;
-		vertical-align: middle;
-		}
-
 	#calendar {
-/* 		float: right; */
         margin: 0 auto;
 		width: 900px;
-		background-color: #FFFFFF;
-		  border-radius: 6px;
-        box-shadow: 0 1px 2px #C3C3C3;
-		}
-
+		background-color: transparent;
+	}
 </style>
 {% endblock stylesheet %}
 
 {% block script %}
 <script>
-	$(document).ready(function() {
+    var rooms = [];
+    {% for room in rooms %}
+        rooms.push({
+            id: '{{ room.room_id }}',
+            title: '{{ room.room_name }}',
+            eventColor: '{{ room.event_color }}'
+        });
+    {% endfor %}
 
+    var room_bookings = [];
+    {% for room_booking in room_bookings %}
+        room_bookings.push({
+            id: '{{ room_booking.id }}',
+            resourceId: '{{ room_booking.room_id }}',
+            start: '{{ room_booking.start_time | date:"c"}}',
+            end: '{{ room_booking.end_time | date:"c"}}',
+            title: '{{ room_booking.title }}'
+        });
+    {% endfor %}
 
-	    var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-
-		/*  className colors
-
-		className: default(transparent), important(red), chill(pink), success(green), info(blue)
-
-		*/
-
-
-		/* initialize the external events
-		-----------------------------------------------------------------*/
-
-		$('#external-events div.external-event').each(function() {
-
-			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			// it doesn't need to have a start or end
-			var eventObject = {
-				title: $.trim($(this).text()) // use the element's text as the event title
-			};
-
-			// store the Event Object in the DOM element so we can get to it later
-			$(this).data('eventObject', eventObject);
-
-			// make the event draggable using jQuery UI
-			$(this).draggable({
-				zIndex: 999,
-				revert: true,      // will cause the event to go back to its
-				revertDuration: 0  //  original position after the drag
-			});
-
-		});
-
-
-		/* initialize the calendar
-		-----------------------------------------------------------------*/
-
-		var calendar =  $('#calendar').fullCalendar({
-			header: {
-				left: 'title',
-				center: 'agendaDay,agendaWeek,month',
-				right: 'prev,next today'
-			},
-			editable: true,
-			firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
-			selectable: true,
-			defaultView: 'month',
-
-			axisFormat: 'h:mm',
-			columnFormat: {
-                month: 'ddd',    // Mon
-                week: 'ddd d', // Mon 7
-                day: 'dddd M/d',  // Monday 9/7
-                agendaDay: 'dddd d'
-            },
-            titleFormat: {
-                month: 'MMMM yyyy', // September 2009
-                week: "MMMM yyyy", // September 2009
-                day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
-            },
-			allDaySlot: false,
-			selectHelper: true,
-			select: function(start, end, allDay) {
-				var title = prompt('Event Title:');
-				if (title) {
-					calendar.fullCalendar('renderEvent',
-						{
-							title: title,
-							start: start,
-							end: end,
-							allDay: allDay
-						},
-						true // make the event "stick"
-					);
-				}
-				calendar.fullCalendar('unselect');
-			},
-			droppable: true, // this allows things to be dropped onto the calendar !!!
-			drop: function(date, allDay) { // this function is called when something is dropped
-
-				// retrieve the dropped element's stored Event Object
-				var originalEventObject = $(this).data('eventObject');
-
-				// we need to copy it, so that multiple events don't have a reference to the same object
-				var copiedEventObject = $.extend({}, originalEventObject);
-
-				// assign it the date that was reported
-				copiedEventObject.start = date;
-				copiedEventObject.allDay = allDay;
-
-				// render the event on the calendar
-				// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-				$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-				// is the "remove after drop" checkbox checked?
-				if ($('#drop-remove').is(':checked')) {
-					// if so, remove the element from the "Draggable Events" list
-					$(this).remove();
-				}
-
-			},
-
-			events: [
-				{
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d-3, 16, 0),
-					allDay: false,
-					className: 'info'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d+4, 16, 0),
-					allDay: false,
-					className: 'info'
-				},
-				{
-					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false,
-					className: 'important'
-				},
-				{
-					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false,
-					className: 'important'
-				},
-				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false,
-				},
-				{
-					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/',
-					className: 'success'
-				}
-			],
-		});
-
-
-	});
-
+    var nickname = "{{ user.first_name }}";
+    var teamname = "{{ user.last_name }}";
+    var phone = "{{ user.phone }}";
 </script>
 
-<script src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
-
+<script type="text/javascript" src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/fullcalendar.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/scheduler.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/home.calendar.js' %}"></script>
 
 {% endblock script %}
 
 {% block content %}
+<div id='calendar'></div>
+
 <!-- main -->
-    <div id='calendar'></div>
- <!-- main -->
-        <main role="main-home-wrapper" class="container">
-            <div class="row">
-            	<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                	<article role="pge-title-content">
-                    	<header>
-                        	<h2><span>AID</span>ABC를 중심으로 MECA를 선도!</h2>
-                        </header>
-                        <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
-                    </article>
-                </section>
+<main role="main-home-wrapper" class="container">
+    <div class="row">
+        <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <article role="pge-title-content">
+                <header>
+                    <h2><span>AID</span>ABC를 중심으로 MECA를 선도!</h2>
+                </header>
+                <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
+            </article>
+        </section>
 
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-                	<ul class="grid-lod effect-2" id="grid">
-                    </ul>
-                </section>
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
 
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-                	<ul class="grid-lod effect-2" id="grid">
-                    </ul>
-                </section>
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
+    </div>
+</main>
+<!-- main -->
+
+<!-- calender modal -->
+<div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">New Meeting room</h4>
             </div>
-        </main>
+            <div class="modal-body">
+                <div id="testmodal" style="padding: 5px 20px;">
+                    <form id="antoform" class="form-horizontal calender" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Booking Info</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="create_title" name="create_title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Start Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="create_start" name="create_start">
+                            </div>
+                        </div>
+                                                <div class="form-group">
+                            <label class="col-sm-3 control-label">End Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="create_end" name="create_end">
+                            </div>
+                        </div>
+                                                <div class="form-group">
+                            <label class="col-sm-3 control-label">Room Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="create_room" name="create_room">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-<!-- main -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="testmodal2" style="padding: 5px 20px;">
+                    <form id="antoform2" class="form-horizontal calender" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Title</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="title2" name="title2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+<div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+<!-- /calendar modal -->
 {% endblock content %}
 
 
