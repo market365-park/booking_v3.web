@@ -67,37 +67,80 @@
 
                 formatted_start = moment(start).format('YYYY-MM-DD, hh:mm');
                 formatted_end = moment(end).format('YYYY-MM-DD, hh:mm');
-                var create_title = nickname + '(' + teamname + ', ' + phone + ')';
+                var event_title = nickname + '(' + teamname + ', ' + phone + ')';
 
-                $("#create_title").val(create_title);
+                event_start = start
+                event_end = end
+                event_resources = resources
+
+                $("#create_title").val(event_title);
                 $("#create_start").val(formatted_start);
                 $("#create_end").val(formatted_end);
                 $("#create_room").val(resources.id);
 
-                started = start
-                ended = end
 
                 $(".antosubmit").on("click", function() {
-                    var title = $("#create_title").val();
-
-                    if (title) {
+                    if (event_title) {
                         calendar.fullCalendar('renderEvent',
                         {
-                            title: title,
-                            start: started,
-                            end: ended,
+                            title: event_title,
+                            start: event_start,
+                            end: event_end,
+                            resourceId : event_resources.id,
                         },
                         true // make the event "stick"
                         );
                     }
 
-                $('#create_title').val('');
+//                    $('#create_title').val('');
 
-                calendar.fullCalendar('unselect');
-$('#calendar').fullCalendar('rerenderEvents');
-                $('.antoclose').click();
+                    calendar.fullCalendar('unselect');
+//                    $('#calendar').fullCalendar('rerenderEvents');
+                    $('.antoclose').click();
 
+//                    var csrf_token = '{{ csrf_token }}';
+//                    $.ajaxSetup({
+//                        beforeSend: function(xhr, settings) {
+//                            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+//                                xhr.setRequestHeader("X-CSRFToken", csrf_token)
+//                            }
+//                        }
+//                    });
+
+                    var event_data = {
+                        'title': event_title,
+                        'start_time': event_start,
+                        'end_time': event_end,
+                        'room_id': event_resources.id,
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/room/create",
+                        dataType: "json",
+                        data: event_data,
+                        success: function (data) {
+                            console.log(data.result);
+                        },
+                    });
+
+
+
+//                    $.post("/room/create/", data, function(){
+//
+//                }
+
+
+
+
+
+                    return false;
                 });
+
+
+
+
+
             },
 
             editable: false,
