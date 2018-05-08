@@ -15,9 +15,9 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import HomeView, create
+from .views import HomeView, RoomCreateView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('create/', create, name='create'),
+    path('create/', RoomCreateView.as_view(), name='create'),
 ]

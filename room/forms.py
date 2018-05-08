@@ -264,7 +264,7 @@ class PostSearchForm(forms.Form):
     search_word = forms.CharField(label='Search Word')
 
 
-class CreateForm(forms.ModelForm):
+class RoomCreateForm(forms.ModelForm):
     title = forms.CharField(
         label="Name(Team, Phone)",
         widget=forms.TextInput(
