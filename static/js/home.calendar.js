@@ -78,8 +78,8 @@ function  init_calendar() {
         select: function(start, end, jsEvent, view, resources) {
             $('#fc_create').click();
 
-            var formatted_start = moment(start).format('YYYY-MM-DD, hh:mm');
-            var formatted_end = moment(end).format('YYYY-MM-DD, hh:mm');
+            var formatted_start = moment(start).format('YYYY-MM-DD HH:mm');
+            var formatted_end = moment(end).format('YYYY-MM-DD HH:mm');
             var event_title = nickname + '(' + teamname + ', ' + phone + ')';
             var event_start = start;
             var event_end = end;
@@ -89,7 +89,6 @@ function  init_calendar() {
             $("#create_start").val(formatted_start);
             $("#create_end").val(formatted_end);
             $("#create_room").val(resources.id);
-
 
             if (event_title) {
                 eventData = {
@@ -104,45 +103,52 @@ function  init_calendar() {
             $('#calendar').fullCalendar('unselect');
 
             $(".antosubmit").on("click", function() {
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                };
 
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
 
-//                var event_data = {
-//                    'title': event_title,
-//                    'start_time': formatted_start,
-//                    'end_time': formatted_end,
-//                    'room_id': event_resources.id,
-//                };
-//
-//                function csrfSafeMethod(method) {
-//                    // these HTTP methods do not require CSRF protection
-//                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-//                }
-//                $.ajaxSetup({
-//                    beforeSend: function(xhr, settings) {
-//                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-//                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-//                        }
-//                    }
-//                });
-//
-//                $.ajax({
-//                    type: "POST",
-//                    url: "/room/create/",
-//                    dataType: "json",
-////                    data: formData,
-////                    enctype: 'multipart/form-data',
-//                    processData: false,
-////                        contentType: "application/json",
-//                    contentType: false,
+                var event_data
+                event_data = new FormData();
+
+                event_data.append("title", event_title);
+                event_data.append('start_time', formatted_start);
+                event_data.append('end_time', formatted_end);
+                event_data.append('room_id', event_resources.id);
+
+                $.ajax({
+                    type: "POST",
+                    url: "/room/create/",
+                    data: event_data,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
 //                    cache: false,
-//                    success: function (data) {
-//                        console.log(data);
-//                    },
-//                });
+                    success: function (data) {
+                        console.log(data);
+                    },
+                });
+
+                event_data = false;
+                formatted_start = false;
+                formatted_end = false;
+                event_title = false;
+                event_start = false;
+                event_end = false;
+                event_resources = false;
 
                 $('.antoclose').click();
 
                 return false;
+
             });
         },
 
