@@ -81,28 +81,34 @@ function  init_calendar() {
             var formatted_start = moment(start).format('YYYY-MM-DD HH:mm');
             var formatted_end = moment(end).format('YYYY-MM-DD HH:mm');
             var event_title = nickname + '(' + teamname + ', ' + phone + ')';
-            var event_start = start;
-            var event_end = end;
-            var event_resources = resources;
+//            var event_start = start;
+//            var event_end = end;
+//            var event_resources = resources;
 
             $("#create_title").val(event_title);
             $("#create_start").val(formatted_start);
             $("#create_end").val(formatted_end);
             $("#create_room").val(resources.id);
 
+
+//            $('#calendar').fullCalendar('unselect');
+
+            $(".antosubmit").on("click", function() {
+
             if (event_title) {
                 eventData = {
                     title: event_title,
-                    start: event_start,
-                    end: event_end,
-                    resourceId : event_resources.id,
+//                    start: event_start,
+//                    end: event_end,
+//                    resourceId : event_resources.id,
+                    start: start,
+                    end: end,
+                    resourceId : resources.id,
                 };
                 $('#calendar').fullCalendar('renderEvent', eventData, true);
                 true // make the event "stick"
             };
-            $('#calendar').fullCalendar('unselect');
 
-            $(".antosubmit").on("click", function() {
                 function csrfSafeMethod(method) {
                     // these HTTP methods do not require CSRF protection
                     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -116,13 +122,12 @@ function  init_calendar() {
                     }
                 });
 
-                var event_data
-                event_data = new FormData();
-
+                var event_data = new FormData();
                 event_data.append("title", event_title);
                 event_data.append('start_time', formatted_start);
                 event_data.append('end_time', formatted_end);
-                event_data.append('room_id', event_resources.id);
+//                event_data.append('room_id', event_resources.id);
+                event_data.append('room_id', resources.id);
 
                 $.ajax({
                     type: "POST",
@@ -131,22 +136,24 @@ function  init_calendar() {
                     enctype: 'multipart/form-data',
                     processData: false,
                     contentType: false,
-//                    cache: false,
-                    success: function (data) {
-                        console.log(data);
-                    },
+                    cache: false,
                 });
 
-                event_data = false;
-                formatted_start = false;
-                formatted_end = false;
-                event_title = false;
-                event_start = false;
-                event_end = false;
-                event_resources = false;
+
+//                event_start = false;
+//                event_end = false;
+//                event_resources = false;
+//                start = null;
+//                end = null;
+//                jsEvent = null;
+//                view = null;
+//                resources = null;
 
                 $('.antoclose').click();
-
+                formatted_start = null;
+                formatted_end = null;
+                event_title = null;
+                event_data = null;
                 return false;
 
             });
@@ -169,9 +176,7 @@ function  init_calendar() {
 
             calendar.fullCalendar('unselect');
         },
-
     });
-
 };
 
 $(document).ready(function() {
