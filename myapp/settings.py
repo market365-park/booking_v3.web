@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
+import os, ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '-0yy@trx=%b@so51c=l2b1cg&rz$a4*ivt-i9u1a+ea-jrheak'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,11 +77,19 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    'ldap': {
+        'ENGINE': 'ldapdb.backends.ldap',
+        'NAME': 'ldap://192.168.56.101',
+        'USER': 'cn=admin,dc=marke,dc=io',
+        'PASSWORD': 'duffufkckaRo0',
+    },
+
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+DATABASE_ROUTERS = ['ldapdb.router.Router']
 #DATABASES = {
 #    'default': {
 #        'ENGINE':'django.db.backends.mysql',
@@ -128,8 +137,11 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+SITE_ROOT = '/'
 
 AUTH_USER_MODEL = 'account.User'
+LOGIN_URL = '/account/signin/'
+LOGIN_REDIRECT_URL = '/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -137,3 +149,30 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# Baseline configuration.
+AUTH_LDAP_SERVER_URI = "ldap://192.168.56.101"
+
+AUTH_LDAP_BIND_DN = "cn=admin,dc=marke,dc=io"
+AUTH_LDAP_BIND_PASSWORD = "duffufkckaRo0"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=marke,dc=io",
+    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+# or perhaps:
+# AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=example,dc=com"
+#
+# Populate the Django user from the LDAP directory.
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    "email": "mail",
+    "phone": "mobile"
+}
+
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Keep ModelBackend around for per-user permissions and maybe a local
+# superuser.
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)

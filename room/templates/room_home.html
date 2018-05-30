@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/fullcalendar.css' %}" rel='stylesheet' />
+<link href="{% static 'css/fullcalendar.print.css' %}" rel='stylesheet' media='print' />
+<link href="{% static 'css/scheduler.css' %}" rel='stylesheet' />
+
+<style>
+	#calendar {
+        margin: 0 auto;
+
+		width: 900px;
+		background-color: transparent;
+	}
+
+	#calendar .fc-today {
+    background: transparent;
+    }
+
+
+
+</style>
+{% endblock stylesheet %}
+
+{% block script %}
+<script>
+    var rooms = [];
+    {% for room in rooms %}
+        rooms.push({
+            id: '{{ room.room_id }}',
+            title: '{{ room.room_name }}',
+            eventColor: '{{ room.event_color }}'
+        });
+    {% endfor %}
+
+    var room_bookings = [];
+    {% for room_booking in room_bookings %}
+        room_bookings.push({
+            id: '{{ room_booking.id }}',
+            resourceId: '{{ room_booking.room_id }}',
+            start: '{{ room_booking.start_time | date:"c"}}',
+            end: '{{ room_booking.end_time | date:"c"}}',
+            title: '{{ room_booking.title }}'
+        });
+    {% endfor %}
+
+    var nickname = "{{ user.first_name }}";
+    var teamname = "{{ user.last_name }}";
+    var phone = "{{ user.phone }}";
+</script>
+
+<script type="text/javascript" src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/scheduler.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/home.calendar.js' %}"></script>
+{% endblock script %}
+
+{% block content %}
+<div id='calendar'></div>
+
+<!-- main -->
+<main role="main-home-wrapper" class="container">
+    <div class="row">
+        <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <article role="pge-title-content">
+                <header>
+                    <h2><span>AID</span>Automotive Intelligence Devision</h2>
+                </header>
+                <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
+            </article>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <ul class="grid-lod effect-2" id="grid">
+            </ul>
+        </section>
+    </div>
+</main>
+<!-- main -->
+
+<!-- calender modal -->
+<div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">New Meeting room</h4>
+            </div>
+            <div class="modal-body">
+                <div id="create_modal" style="padding: 5px 20px;">
+                    <form id="create_form" class="form-horizontal calender" role="form" action="/room/booking/" method="post">{% csrf_token %}
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Booking Info</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="title" name="title" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Start Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="start_time" name="start_time" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">End Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="end_time" name="end_time" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Room Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="room_id" name="room_id" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default create_antoclose" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary create_antosubmit">Booking!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+            </div>
+            <div class="modal-body">
+                <div id="delete_modal" style="padding: 5px 20px;">
+                    <form id="delete_form" class="form-horizontal calender" role="form" action="/room/booking/" method="get">{% csrf_token %}
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Booking Info</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="delete_title" name="delete_title" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Start Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="delete_start_time" name="delete_start_time" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">End Time</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="delete_end_time" name="delete_end_time" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Room Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="delete_room_id" name="delete_room_id" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <input type="hidden" class="form-control" id="delete_event_id" name="delete_event_id" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default delete_antoclose" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary delete_antosubmit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+<div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+
+<!-- /calendar modal -->
+{% endblock content %}
+
+

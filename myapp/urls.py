@@ -19,8 +19,8 @@ from .views import return_room_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/', include('account.urls', namespace='account')),
 
+    path('room/', include('room.urls', namespace='room')),
     path('', return_room_view, name='home'),
-
-    path('room/', include('room.urls',)),
 ]

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+
+<style>
+	.contact-header {
+        height : 200px;
+	}
+
+    #id_password {
+    	width: 100%;
+        display: block;
+        outline: none;
+        border-bottom: 1px solid #bbbbbb;
+        background-color: inherit;
+        color: #404040;
+        font-size: 21px;
+        line-height: 23px;
+        padding-bottom: 24px;
+        padding-top: 30px;
+    }
+</style>
+
+{% endblock stylesheet %}
+
+{% block script %}
+{% endblock script %}
+
+
+{% block content %}
+<!-- main -->
+
+<main role="main-inner-wrapper" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            <article role="pge-title-content" class="contact-header">
+                <header>
+                    <h2><span>HELLO!</span> we love to hear you.</h2>
+                </header>
+            </article>
+        </div>
+
+
+        <div class="clearfix"></div>
+
+
+        <!-- contat-from-wrapper -->
+
+        <div class="contat-from-wrapper">
+            <div id="message"></div>
+            <form method="post" action="/account/register/" name="register" id="register">
+                {% csrf_token %}
+                <div class="row">
+                <!--{{ form.as_p }}-->
+                        {{ form.username }}
+                        <span class="field-error">{{ form.username.errors|striptags }}</span>
+
+                <!-- realrname input -->
+                        {{ form.first_name }}
+                        <span class="field-error">{{ form.first_name.errors|striptags }}</span>
+
+                <!-- Email input-->
+                        {{ form.email }}
+                        <span class="field-error">{{ form.email.errors|striptags }}</span>
+
+                <!-- Phone input-->
+                        {{ form.phone }}
+                        <span class="field-error">{{ form.phone.errors|striptags }}</span>
+
+                <!-- team name input -->
+                        {{ form.last_name }}
+                        <span class="field-error">{{ form.last_name.errors|striptags }}</span>
+
+                <!-- Password1 input-->
+                        {{ form.password1 }}
+                        <span class="field-error">{{ form.password1.errors|striptags }}</span>
+
+                <!-- Password2 input-->
+                        {{ form.password2 }}
+                        <span class="field-error">{{ form.password2.errors|striptags }}</span>
+                </div>
+
+                <div class="clearfix"></div>
+                <input name="" type="submit" value="login">
+                <div id="simple-msg"></div>
+            </form>
+        </div>
+        <!-- contat-from-wrapper -->
+    </div>
+</main>
+
+<!-- main -->
+{% endblock content %}
