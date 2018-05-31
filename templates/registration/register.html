@@ -8,7 +8,19 @@
         height : 200px;
 	}
 
-    #id_password {
+	#id_username, #id_first_name, #id_email, #id_phone {
+		padding-top:30px;
+	}	
+	
+
+	.btn-last_name {
+		background-color: #e2e2e2;
+		margin-top: 25px;
+		padding: 20px;
+		font-size: 16px;
+	}	
+
+    #id_password1, #id_password2 {
     	width: 100%;
         display: block;
         outline: none;
@@ -68,10 +80,6 @@
                         {{ form.phone }}
                         <span class="field-error">{{ form.phone.errors|striptags }}</span>
 
-                <!-- team name input -->
-                        {{ form.last_name }}
-                        <span class="field-error">{{ form.last_name.errors|striptags }}</span>
-
                 <!-- Password1 input-->
                         {{ form.password1 }}
                         <span class="field-error">{{ form.password1.errors|striptags }}</span>
@@ -79,6 +87,10 @@
                 <!-- Password2 input-->
                         {{ form.password2 }}
                         <span class="field-error">{{ form.password2.errors|striptags }}</span>
+
+                <!-- team name input -->
+                        {{ form.last_name }}
+                        <span class="field-error">{{ form.last_name.errors|striptags }}</span>
                 </div>
 
                 <div class="clearfix"></div>

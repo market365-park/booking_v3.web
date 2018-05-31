@@ -83,7 +83,9 @@ class RegisterForm(UserCreationForm):
         choices=TEAM_NAME_CHOICES,
         widget=forms.Select(
             attrs={
-                'choice class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+#                'choice class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'select class': 'selectpicker col-md-12 col-lg-12 col-sm-12 col-xs-12',
+				'data-style' : 'btn-last_name',
                 'required': 'true',
             }
         )

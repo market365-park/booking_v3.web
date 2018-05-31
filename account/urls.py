@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from .forms import MyLoginForm, MyPasswordChangeForm
-from .views import CreateUserView
+from .views import CreateUserView, signup
 
 app_name = 'account'
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('register/', CreateUserView.as_view(), name='register'),
+#    path('register/', CreateUserView.as_view(), name='register'),
+    path('register/', signup, name='register'),
     path('signin/', auth_views.login,
         {'authentication_form': MyLoginForm,
          'template_name': 'registration/login.html',

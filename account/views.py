@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .forms import RegisterForm
 from django.contrib import messages
+from django.contrib.auth import login, authenticate
+from django.shortcuts import redirect
 
 # Create your views here.
 class CreateUserView(CreateView):
@@ -29,3 +31,19 @@ class CreateUserView(CreateView):
         user.save()
 
         return super(CreateUserView, self).form_valid(form)
+
+
+def signup(request):
+	if request.method == 'POST':
+		form = RegisterForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			raw_password = form.cleaned_data.get('password1')
+			user = authenticate(username=username, password=raw_password)
+			login(request, user)
+			return redirect('home')
+	else:
+		form = RegisterForm()
+
+	return render(request, 'registration/register.html', {'form': form})

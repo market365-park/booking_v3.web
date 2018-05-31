@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import return_room_view
+from .views import return_room_view, GateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
 
+	path('gate/', GateView.as_view(), name='gate'),
     path('room/', include('room.urls', namespace='room')),
     path('', return_room_view, name='home'),
 ]

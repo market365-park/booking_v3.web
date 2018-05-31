@@ -77,11 +77,18 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+#    'ldap': {
+#        'ENGINE': 'ldapdb.backends.ldap',
+#        'NAME': 'ldap://192.168.56.101',
+#        'USER': 'cn=admin,dc=marke,dc=io',
+#        'PASSWORD': 'duffufkckaRo0',
+#    },
+
     'ldap': {
         'ENGINE': 'ldapdb.backends.ldap',
-        'NAME': 'ldap://192.168.56.101',
-        'USER': 'cn=admin,dc=marke,dc=io',
-        'PASSWORD': 'duffufkckaRo0',
+        'NAME': 'ldap://10.12.14.78/',
+        'USER': 'cn=admin,dc=connected-car,dc=io',
+		'PASSWORD': 'devOps!23',
     },
 
     'default': {
@@ -150,21 +157,30 @@ STATICFILES_DIRS = (
 )
 
 # Baseline configuration.
-AUTH_LDAP_SERVER_URI = "ldap://192.168.56.101"
+#AUTH_LDAP_SERVER_URI = "ldap://192.168.56.101"
+AUTH_LDAP_SERVER_URI = "ldap://10.12.14.78"
 
-AUTH_LDAP_BIND_DN = "cn=admin,dc=marke,dc=io"
-AUTH_LDAP_BIND_PASSWORD = "duffufkckaRo0"
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=marke,dc=io",
+
+AUTH_LDAP_BIND_DN = "cn=admin,dc=connected-car,dc=io"
+AUTH_LDAP_BIND_PASSWORD = "devOps!23"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=connected-car,dc=io",
     ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+
+#AUTH_LDAP_BIND_DN = "cn=admin,dc=marke,dc=io"
+#AUTH_LDAP_BIND_PASSWORD = "duffufkckaRo0"
+#AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=marke,dc=io",
+#    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 # or perhaps:
 # AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=example,dc=com"
 #
 # Populate the Django user from the LDAP directory.
 AUTH_LDAP_USER_ATTR_MAP = {
-    "first_name": "givenName",
+    "first_name": "cn",
     "last_name": "sn",
     "email": "mail",
-    "phone": "mobile"
+    "phone": "telephoneNumber",
+	"username": "uid",
 }
 
 # This is the default, but I like to be explicit.
