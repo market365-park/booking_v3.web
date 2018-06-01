@@ -8,7 +8,7 @@
         height : 200px;
 	}
 
-	#id_username, #id_first_name, #id_email, #id_phone {
+	#id_first_name, #id_email, #id_phone {
 		padding-top:30px;
 	}	
 	
@@ -32,6 +32,11 @@
         padding-bottom: 24px;
         padding-top: 30px;
     }
+
+	#btn-submit {
+		margin-top: 100px;
+	}
+
 </style>
 
 {% endblock stylesheet %}
@@ -94,7 +99,7 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <input name="" type="submit" value="login">
+                <input name="btn-submit" id="btn-submit" type="submit" value="register">
                 <div id="simple-msg"></div>
             </form>
         </div>
