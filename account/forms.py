@@ -85,7 +85,7 @@ class RegisterForm(UserCreationForm):
             attrs={
 #                'choice class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
                 'select class': 'selectpicker col-md-12 col-lg-12 col-sm-12 col-xs-12',
-				'data-style' : 'btn-last_name',
+                'data-style' : 'btn-last_name',
                 'required': 'true',
             }
         )
@@ -105,7 +105,6 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = LdapUser
         fields = ("username", "first_name", "last_name", "email", "phone")
-
 
     def save(self, commit=True):
         user = super().save(commit=False)

@@ -7,7 +7,7 @@
     yum install python-devel openldap-devel
     pip install django==2.0.5
     pip install python-ldap==3.1.0
-    
+    pip install passlib==1.7.1
     
       
     
