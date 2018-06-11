@@ -13,8 +13,8 @@ class User(AbstractUser):
 class LdapUser(ldapdb.models.Model, models.Model):
     object_classes = ['inetOrgPerson']
     USERNAME_FIELD = 'username'
-    # base_dn = "ou=users,dc=connected-car,dc=io"
-    base_dn = "ou=users,dc=marke,dc=io"
+    base_dn = "ou=users,dc=connected-car,dc=io"
+    # base_dn = "ou=users,dc=marke,dc=io"
     first_name = CharField("Name", db_column='cn')
     last_name = CharField("Team", db_column='sn')
     email = CharField("E-mail", db_column='mail')

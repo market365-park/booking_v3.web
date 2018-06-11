@@ -1,10 +1,15 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from .forms import RegisterForm
+from .forms import RegisterForm, MyPasswordChangeForm, ProfileUpdateForm 
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
-from django.shortcuts import redirect
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.shortcuts import render, redirect
+from django.views.generic import UpdateView
+from .models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class CreateUserView(CreateView):
@@ -47,3 +52,34 @@ def signup(request):
         form = RegisterForm()
 
     return render(request, 'registration/register.html', {'form': form})
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = MyPasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('home')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = MyPasswordChangeForm(request.user)
+    return render(request, 'registration/password_change_form.html', {
+        'form': form
+    })
+
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    # model = User
+    # queryset = User
+    form_class = ProfileUpdateForm
+#    form_class = RegisterForm
+    template_name = 'registration/profile_update.html'
+    success_url = '/'
+
+    def get_queryset(self):
+        users = User.objects.all()
+        return users

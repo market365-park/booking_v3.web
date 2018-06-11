@@ -17,19 +17,17 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from .forms import MyLoginForm, MyPasswordChangeForm
-from .views import CreateUserView, signup
+from .views import *
 
 app_name = 'account'
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-#    path('register/', CreateUserView.as_view(), name='register'),
-    path('register/', signup, name='register'),
+    
+	path('signup/', signup, name='signup'),
     path('signin/', auth_views.login,
-        {'authentication_form': MyLoginForm,
-         'template_name': 'registration/login.html',
-         'redirect_field_name': 'home'}, name='signin'),
-    # url(r'^account/password_change/$', auth_views.password_change,
-		# {'post_change_redirect' :'/',
-		#  'password_change_form': MyPasswordChangeForm }, name='password_change'),
-    # url(r'^account/profile/(?P<pk>[0-9]+)/edit/$', ProfileUpdateView.as_view(), name='edit_profile'),
+		{'authentication_form': MyLoginForm, 'template_name': 'registration/login.html', 'redirect_field_name': 'home'},
+		 name='signin'),
+
+    path('password/', change_password, name='change_password'),
+    path('profile/<int:pk>/edit/', ProfileUpdateView.as_view(), name='edit_profile'),
 ]

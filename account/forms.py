@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, UserChangeForm, ReadOnlyPasswordHashField
-
 from account.models import User, LdapUser
 
 TEAM_NAME_CHOICES = (
@@ -124,10 +123,20 @@ class ProfileUpdateForm(UserChangeForm):
             'invalid': "This value may contain only letters, numbers and " "@/./+/-/_ characters."},
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
                 'placeholder': '사번을 입력해 주세요.',
                 'required': 'true',
-                'readonly': 'readonly'
+            }
+        )
+    )
+
+    password = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'placeholder': 'Password',
+                'required': 'true',
             }
         )
     )
@@ -136,30 +145,28 @@ class ProfileUpdateForm(UserChangeForm):
         label="Firm E-mail",
         widget=forms.EmailInput(
             attrs={
-                'class': 'form-control',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
                 'placeholder': 'Kim.KIA@hyundai.com',
                 'required': 'true',
-            }
-        )
-    )
+            }))
 
     first_name = forms.CharField(
         label="Name",
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
                 'placeholder': '본인의 이름을 한글로 입력해 주세요.',
                 'required': 'true',
-            }
-        )
-    )
+            }))
 
     last_name = forms.ChoiceField(
         label="Team",
         choices=TEAM_NAME_CHOICES,
         widget=forms.Select(
             attrs={
-                'choice class': 'form-control',
+#                'choice class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'select class': 'selectpicker col-md-12 col-lg-12 col-sm-12 col-xs-12',
+                'data-style' : 'btn-last_name',
                 'required': 'true',
             }
         )
@@ -169,26 +176,16 @@ class ProfileUpdateForm(UserChangeForm):
         label="Phone",
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
                 'placeholder': '회사전화 뒤 4자리를 입력해 주세요.',
                 'required': 'true',
             }
         )
     )
 
-    password = ReadOnlyPasswordHashField(
-        label="Password",
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': '비밀번호',
-                'required': 'true',
-            }
-        )
-    )
 
     class Meta:
-        model = User
+        model = LdapUser
         fields = ("username", "password", "first_name", "last_name", "email", "phone")
 
     def __init__(self, *args, **kwargs):
@@ -233,35 +230,36 @@ class MyLoginForm(AuthenticationForm):
 
 class MyPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(
-        label="Old Password",
-        help_text="Enter the old password",
+#        label="Old Password",
+#        help_text="Enter the old password",
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': 'Old Password',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'placeholder': 'Enter the old password',
                 'required': 'true',
             }
         )
     )
 
     new_password1 = forms.CharField(
-        label="Password",
+#        label="Password",
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': 'New Password',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'placeholder': 'Enter the new password',
                 'required': 'true',
             }
         )
     )
 
     new_password2 = forms.CharField(
-        label="Password confirmation",
-        help_text="Enter the same password as above, for verification.",
+ #       label="Password confirmation",
+ #       help_text="Enter the same password as above, for verification.",
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': 'Password confirmation', 'required': 'true',
+                'class': 'col-md-6 col-lg-6 col-sm-6 col-xs-12',
+                'placeholder': 'Repeat the new password',
+				'required': 'true',
             }
         )
     )

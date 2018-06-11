@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+
+<style>
+	.contact-header {
+        height : 200px;
+	}
+
+	#id_first_name, #id_email, #id_phone {
+		padding-top:30px;
+	}	
+	
+
+	.btn-last_name {
+		background-color: #e2e2e2;
+		margin-top: 25px;
+		padding: 20px;
+		font-size: 16px;
+	}	
+
+    #id_password {
+    	width: 100%;
+        display: block;
+        outline: none;
+        border-bottom: 1px solid #bbbbbb;
+        background-color: inherit;
+        color: #404040;
+        font-size: 21px;
+        line-height: 23px;
+        padding-bottom: 24px;
+        padding-top: 30px;
+    }
+
+	#btn-submit {
+		margin-top: 100px;
+	}
+
+</style>
+
+{% endblock stylesheet %}
+
+{% block script %}
+{% endblock script %}
+
+
+{% block content %}
+<!-- main -->
+
+<main role="main-inner-wrapper" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            <article role="pge-title-content" class="contact-header">
+                <header>
+                    <h2><span>HELLO!</span> we love to hear you.</h2>
+                </header>
+            </article>
+        </div>
+
+
+        <div class="clearfix"></div>
+
+
+        <!-- contat-from-wrapper -->
+
+        <div class="contat-from-wrapper">
+            <div id="message"></div>
+            <form method="post" action="." name="profile" id="profile">
+                {% csrf_token %}
+                <div class="row">
+                <!--{{ form.as_p }}-->
+                        {{ form.username }}
+                        <span class="field-error">{{ form.username.errors|striptags }}</span>
+
+                <!-- realrname input -->
+                        {{ form.first_name }}
+                        <span class="field-error">{{ form.first_name.errors|striptags }}</span>
+
+                <!-- Email input-->
+                        {{ form.email }}
+                        <span class="field-error">{{ form.email.errors|striptags }}</span>
+
+                <!-- Phone input-->
+                        {{ form.phone }}
+                        <span class="field-error">{{ form.phone.errors|striptags }}</span>
+
+                <!-- Password input-->
+                        {{ form.password }}
+                        <span class="field-error">{{ form.password.errors|striptags }}</span>
+
+                <!-- team name input -->
+                        {{ form.last_name }}
+                        <span class="field-error">{{ form.last_name.errors|striptags }}</span>
+                </div>
+
+                <div class="clearfix"></div>
+                <input name="btn-submit" id="btn-submit" type="submit" value="edit">
+                <div id="simple-msg"></div>
+            </form>
+        </div>
+        <!-- contat-from-wrapper -->
+    </div>
+</main>
+
+<!-- main -->
+{% endblock content %}

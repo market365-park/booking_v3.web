@@ -32,7 +32,7 @@ AUTH_LDAP_USER_ATTR_MAP = {
 	"username": "uid",
 }
 
-AUTH_LDAP_ALWAYS_UPDATE_USER = True
+#AUTH_LDAP_ALWAYS_UPDATE_USER = True
 
 AUTHENTICATION_BACKENDS = (
     'django_auth_ldap.backend.LDAPBackend',
