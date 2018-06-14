@@ -1,738 +1,741 @@
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<!-- Head -->
 <head>
-<title>C-Resume a personal Category Bootstrap responsive Website Template | Home :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<meta name="keywords" content="C-Resume a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<title>innovative-cv a Personal Category bootstrap Responsive website Template | Home :: w3layouts</title>
+<!--meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="innovative-cv Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<!-- css -->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--//meta tags ends here-->
+<!--booststrap-->
+<link href="{% static 'aboutme/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" >
+ 
+<!--//booststrap end-->
+
 <!-- font-awesome icons -->
-<link rel="stylesheet" href="{% static 'aboutme/css/font-awesome.min.css' %}" />
+   <link href="{% static 'aboutme/css/font-awesome.css' %}" rel="stylesheet"> 
 <!-- //font-awesome icons -->
-<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'aboutme/css/style.css' %}" type="text/css" media="all" />
-<link rel="stylesheet" href="{% static 'aboutme/css/bootstrap.min.css' %}" type="text/css" media="all" />
-<!-- Default-JavaScript-File -->
-	<script type="text/javascript" src="{% static 'aboutme/js/jquery-2.1.4.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'aboutme/js/bootstrap.min.js' %}"></script>
-<!-- //Default-JavaScript-File -->
+<!--stylesheets-->
+<link href="{% static 'aboutme/css/style.css' %}" rel='stylesheet' type='text/css' media="all">
 
+<link href="{% static 'aboutme/css/circles.css' %}" rel="stylesheet" type="text/css" media="all" > <!--skill-circles-->
+
+<link rel="stylesheet" href="{% static 'aboutme/css/main.css'%} ">
+
+<!--//style sheet end here-->
+<link href="//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
 </head>
-<body>
-<!-- banner -->
-	<div class="w3-banner-top">
-	<div class="agileinfo-dot">
-			<div class="w3layouts_menu">
-				<nav class="cd-stretchy-nav edit-content">
-					<a class="cd-nav-trigger" href="#0"> Menu <span aria-hidden="true"></span> </a>
-					<ul>
-						<li><a href="#home" class="scroll"><span>Home</span></a></li>
-						<li><a href="#about" class="scroll"><span>About</span></a></li>
-						<li><a href="#experiences" class="scroll"><span>Experiences</span></a></li>
-						<li><a href="#skills" class="scroll"><span>Skills</span></a></li> 
-						<li><a href="#projects" class="scroll"><span>Projects</span></a></li>
-						<li><a href="#contact" class="scroll"><span>Contact</span></a></li>
-					</ul> 
-					<span aria-hidden="true" class="stretchy-nav-bg"></span>
-				</nav> 
+<body>    
+
+<div class="agileits_main">
+	<div class="banner" id="home">
+		<!-- menu -->
+					<div id="toggle_m_nav">
+			  <div id="m_nav_menu" class="m_nav">
+				<div class="m_nav_ham" id="m_ham_1"></div>
+				<div class="m_nav_ham" id="m_ham_2"></div>
+				<div class="m_nav_ham" id="m_ham_3"></div>
+			  </div>
 			</div>
 
-		<div class="w3-banner-grids">
-			<div class="col-md-6 w3-banner-grid-left">
-				<div class="w3-banner-img">
-					<img src="images/ban661.jpg" alt="img">
-					<h3 class="test">Chris Adam</h3>
-					<p class="test" >Graphic designer</p>
-				</div>
+			<div id="m_nav_container" class="m_nav">
+			  <ul id="m_nav_list" class="m_nav">
+				<li class="m_nav_item" id="m_nav_item_1"> <a href="#home">Home</a> </li>
+				<li class="m_nav_item" id="moble_nav_item_2"> <a href="#about">About</a> </li>
+				<li class="m_nav_item" id="moble_nav_item_3"> <a href="#skills">Skills</a> </li>
+				<li class="m_nav_item" id="moble_nav_item_4"> <a href="#portfolio">Portfolio</a> </li>
+				<li class="m_nav_item" id="moble_nav_item_5"> <a href="#education">Qualification</a> </li>
+				<li class="m_nav_item" id="moble_nav_item_6"> <a href="#contact">Contact</a> </li>
+			  </ul>
 			</div>
-			<div class="col-md-6 w3-banner-grid-right">
-			<div class="w3-banner-text">
-				<h3>Career Goal</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim velit sed nibh placerat, non aliquam purus pretium. Donec at justo dignissim, maximus elit et, vestibulum mi.</p>
-			</div>
-				<div class=" w3-right-addres-1">
-				<ul class="address">
-								<li>
-									<ul class="agileits-address-text ">
-										<li class="agile-it-adress-left"><b>D.O.B</b></li>
-										<li><span>:</span>21-08-1987</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li class="agile-it-adress-left"><b>PHONE</b></li>
-										<li><span>:</span>(+000) 003 003 0052</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li class="agile-it-adress-left"><b>ADDRESS</b></li>
-										<li><span>:</span>3030 New York, NY, USA</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li class="agile-it-adress-left"><b>E-MAIL</b></li>
-										<li><span>:</span><a href="mailto:example@mail.com"> info@example.com</a></li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li class="agile-it-adress-left"><b>WEBSITE</b></li>
-										<li><span>:</span><a href="#">www.myresume.com</a></li>
-									</ul>
-								</li>
-							</ul> 
-
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		</div>
-		<div class="thim-click-to-bottom">
-				<a href="#about" class="scroll">
-					<i class="fa  fa-chevron-down"></i>
-				</a>
-			</div>
-
-	</div>
-<!-- banner -->
-<!-- /about -->
-
-<div class="w3-about" id="about">
-	<div class="container">
-		<div class="w3-about-head">
-			<h3>About me</h3>
-		</div>
-		<div class="w3-about-grids">
-		<div class=" w3-about-grids1">
-				<div class="col-md-6 w3-about-grid-left1">
-					<img src="images/ab5.jpg" alt="img1">
-		
-				</div>
-				<div class="col-md-6 w3-about-grid-right1">
-					<h3>Aliquam euismod at turpis eu egestas</h3>
-					<p> Nullam pulvinar nunc eget tortor elementum, sed vehicula massa vestibulum. Aenean gravida arcu viverra nisl euismod laoreet. Fusce accumsan vel arcu at tincidunt. Nulla non nulla ultrices, pharetra orci in, varius nunc.</p>
-					<h5>Lorem ipsum dolor sit amet, consectetur adipisci ask</h5>
-					<div class= "w3-about-grid-small-border">
-					<div class="col-md-4 w3-about-grid-small">
-						<h3 class="w3-head-project">20</h3>
-						<h5>web projects</h5>
-					</div>
-					<div class="col-md-4 w3-about-grid-small">
-					<h3 class="w3-head-project">30</h3>
-						<h5>php projects</h5>
-					</div>
-					<div class="col-md-4 w3-about-grid-small">
-						<h3 class="w3-head-project">50</h3>
-						<h5>java projects</h5>
-						<div class="clearfix"></div>
-					</div>
-				<div class="clearfix"></div>
-				</div>
-				</div>
-				<div class="clearfix"></div>
-				<div class="w3-about-grids2">
-				<div class="col-md-6 w3-about-grid-left2">
-					<h3>Pellentesque sit amet ex at nisl posuere</h3>
-					<p> Nullam pulvinar nunc eget tortor elementum, sed vehicula massa vestibulum. Aenean gravida arcu viverra nisl euismod laoreet. Fusce accumsan vel arcu at tincidunt. Nulla non nulla ultrices, pharetra orci in, varius nunc.</p>
-					<h4><a href="#">Readmore</a></h4>
-		
-				</div>
-				<div class="col-md-6 w3-about-grid-right2">
-				<img src="images/ab7.jpg" alt="img1">
-		
-				</div>
-				<div class="clearfix"></div>
-				</div>
-		</div>
-	</div>
-</div>
-</div>
-<!-- //about  -->
-<!--/ education -->
-	<div class="w3-edu-top" id="experiences">
-	<div class="container">
-		<div class="w3-edu-grids">
-			<div class="col-md-6 w3-edu-grid-left">
-				<div class="w3-edu-grid-header">
-				<h3>Experiences</h3>
-				</div>
-				<div class="col-md-4 w3-edu-info1">
-					<h3>2017</h3>
-					<h4>web developer</h4>
-			</div>
-			<div class="col-md-6 w3-edu-info2">
-				<h3>Ati software solution</h3>
-					<h4><i class="fa fa-users" aria-hidden="true"></i><span>Team leader</span></h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate </p>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-4 w3-edu-info1">
-			<h3>2015</h3>
-					<h4>php developer</h4>
-					
-			</div>
-			<div class="col-md-6 w3-edu-info2">
-				<h3>Tcs software solution</h3>
-					<h4><i class="fa fa-code" aria-hidden="true"></i><span>programmer</span></h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate</p>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-4 w3-edu-info1">
-			<h3>2014</h3>
-					<h4>Graphic designer</h4>
-					
-			</div>
-			<div class="col-md-6 w3-edu-info2">
-				<h3>Ntt software solution</h3>
-					<h4><i class="fa fa-laptop" aria-hidden="true"></i><span>trainer</span></h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate</p>
-			
-			</div>
-			<div class="clearfix"></div>		
-			</div>
-			<div class="col-md-6 w3-edu-grid-right">
-			<div class="w3-edu-grid-header">
-			<h3>Education</h3>
-			</div>
-				<div class="col-md-3 w3-edu-info-right1">
-					<h3>2009</h3>
-			</div>
-			<div class="col-md-9 w3-edu-info-right2">
-				<h3>iit kharagpur delhi</h3>
-					<h4>Computer science</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate Donec tincidunt a purus et vulputate</p>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-3 w3-edu-info-right1">
-				<h3>2006</h3>
-			</div>
-			<div class="col-md-9 w3-edu-info-right2">
-				<h3>Board of intermediate</h3>
-					<h4>mathametics </h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate Donec tincidunt a purus et vulputate</p>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-3 w3-edu-info-right1">
-			<h3>2004</h3>
-			</div>
-			<div class="col-md-9 w3-edu-info-right2">
-				<h3>international school</h3>
-					<h4>iit certified</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt a purus et vulputate Donec tincidunt a purus et vulputate</p>
-			
-			</div>
-			<div class="clearfix"></div>		
-		</div>
-		<div class="clearfix"></div>	
-	</div>
-	</div>
-	</div>
-<!-- //education -->
-<!-- skills -->
-<div class="skills" id="skills">
-	<div class="container">
-	<div class="title-w3ls">
-		<h4>My Skills</h4>
-		</div>
-		<div class="skills-bar">
-		<div class="col-md-6 w3-agile-skills-grid">
-			<section class='bar'>
-				<section class='wrap'>
-					<div class='wrap_right'>
-					  <div class='bar_group'>
-						<div class='bar_group__bar thin' label='jQuery' show_values='true' tooltip='true' value='343'></div>
-						<div class='bar_group__bar thin' label='AJAX' show_values='true' tooltip='true' value='235'></div>
-						<div class='bar_group__bar thin' label='PHP' show_values='true' tooltip='true' value='675'></div>
-						<div class='bar_group__bar thin' label='SASS' show_values='true' tooltip='true' value='456'></div>
-						<div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='245'></div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</section>
-			</section>
-		</div>
-		<div class="col-md-6 w3-agile-skills-grid">
-			<section class='bar'>
-				<section class='wrap'>
-					<div class='wrap_right'>
-					  <div class='bar_group'>
-						<div class='bar_group__bar thin' label='Java' show_values='true' tooltip='true' value='350'></div>
-						<div class='bar_group__bar thin' label='Angualr js' show_values='true' tooltip='true' value='200'></div>
-						<div class='bar_group__bar thin' label='Sql' show_values='true' tooltip='true' value='400'></div>
-						<div class='bar_group__bar thin' label='Mysql' show_values='true' tooltip='true' value='395'></div>
-						<div class='bar_group__bar thin' label='Hadoop' show_values='true' tooltip='true' value='200'></div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</section>
-			</section>
-		</div>
-		<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-<!-- //skills -->
-
-<!-- main-content -->
-	<div class="main-content">
-		<!-- gallery -->
-	<div class="gallery" id="projects">
-		<div class="w3-gallery-head">
-			<h3>My projects</h3>
-		</div>
-	<div class="container">
-		<div class="gallery_gds">
-			<ul class="simplefilter ">
-                <li class="active" data-filter="all">All</li>
-                <li data-filter="1">php</li>
-                <li data-filter="2">Java</li>
-                <li data-filter="3">Web development</li>
-            </ul>   
-            <div class="filtr-container " style="padding: 0px; position: relative; height: 858px;">
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 5" data-sort="Busy streets" style="opacity: 1; transform: scale(1) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g1.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal1">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="2, 5" data-sort="Luminous night" style="opacity: 1; transform: scale(1) translate3d(380px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g2.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal2">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 4" data-sort="City wonders" style="opacity: 1; transform: scale(1) translate3d(760px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g31.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal3">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 3" data-sort="In production" style="opacity: 1; transform: scale(1) translate3d(0px, 286px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g4.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal4">View Details</a></div>
-						</div>	
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="3, 4" data-sort="Industrial site" style="opacity: 1; transform: scale(1) translate3d(380px, 286px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g5.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal5">View Details</a></div>
-						</div>	
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="3, 4" data-sort="Industrial site" style="opacity: 1; transform: scale(1) translate3d(380px, 286px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g6.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal5">View Details</a></div>
-						</div>
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 3" data-sort="City lights" style="opacity: 1; transform: scale(1) translate3d(0px, 572px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g7.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal7">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="2, 4" data-sort="Dreamhouse" style="opacity: 1; transform: scale(1) translate3d(380px, 572px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g8.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal8">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 3, 4" data-sort="Dreamhouse" style="opacity: 1; transform: scale(1) translate3d(760px, 572px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
-					<div class="jm-item-wrapper">
-						<div class="jm-item-image">
-							<img src="images/g9.jpg" alt="property" />
-							<span class="jm-item-overlay"> </span>
-							<div class="jm-item-button"><a href="#"  data-toggle="modal" data-target="#myModal9">View Details</a></div>
-						</div>	
-						
-					</div>
-				</div>
-               <div class="clearfix"> </div>
-            </div>
-		</div>
-	</div>	
-	</div>
-	<!--//gallery-->
-	</div>
-<!-- //main-content -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class="w3ls-property-images w3-pop1-img">
-							</div>
-					
-						<div class="ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class="w3ls-property-images">
-								<img src="images/gal11.jpg" alt="image">
-							</div>
-					
-						<div class="ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img2">
-							<img src="images/gal22.jpg" alt="image">
-							</div>
-					
-						<div class=" ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class="w3ls-property-images w3-pop1-img3">
-							<img src="images/gal33.jpg" alt="image">
-							</div>
-					
-						<div class="ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img4">
-							<img src="images/gal44.jpg" alt="image">
-							</div>
-					
-						<div class=" ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img5">
-							<img src="images/gal66.jpg" alt="image">
-							</div>
-					
-						<div class=" ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img6">
-								<img src="images/gal61.jpg" alt="image">
-							</div>
-					
-						<div class=" ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-					 
-<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img7">
-								<img src="images/gal77.jpg" alt="image">
-							</div>
-					
-						<div class="ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-<div class="modal fade" id="myModal8" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img8">
-								<img src="images/gal88.jpg" alt="image">
-							</div>
-					
-						<div class=" ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>
-<div class="modal fade" id="myModal9" tabindex="-1" role="dialog" >
-				<div class="modal-dialog">
-							<!-- Modal content-->
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-							<div class=" w3ls-property-images w3-pop1-img9">
-							<img src="images/gal99.jpg" alt="image">
-							</div>
-					
-						<div class="ins-details">
-							<div class="ins-name">
-								<h3>voluptatem accusantium doloremque</h3>
-								
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-								
-							</div>
-							
-						</div>
-						<div class="clearfix"></div>			
-			     </div>
-	</div>				 					
- <script src="{% static 'aboutme/js/jquery.filterizr.js' %}"></script>
-    
-    <!-- Kick off Filterizr -->
-    <script type="text/javascript">
-        $(function() {
-            //Initialize filterizr with default options
-            $('.filtr-container').filterizr();
-        });
-    </script>
-
-<!-- contact -->
-	 <div class="contact" id="contact">
-	<div class="container">
-		<div class="w3ls-heading">
-			<h3>Contact me</h3>
-		</div>
-			<div class="contact-w3ls">
-				<form action="#" method="post">
-					<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
-						<input type="text" name="First Name" placeholder="Name" required="">
-						<input type="email"  class="email" name="Email" placeholder="Email" required="">
-						<input type="text" name="Number" placeholder="Mobile Number" required="">
-						<!-- <input type="text" class="email" name="Last Name" placeholder="Last Name" required=""> -->
-					</div> 
-					<div class="col-md-5 col-sm-5 contact-right agileits-w3layouts">
-						<textarea name="Message" placeholder="Message" required=""></textarea>
-						<input type="submit" value="Submit">
-					</div>
-					<div class="clearfix"> </div> 
-				</form>
-			</div>  
-
-	</div>
-</div>
-<!-- //contact -->
-<!-- footer -->
-	<div class="w3l_footer">
+		<!-- menu -->
 		<div class="container">
-			
-			<div class="w3ls_footer_grids">
+			<div class="agile-logo">
+				<h1><a href="index.html">INNOVATIVE-<span>cv</span></a></h1>
+			</div>
+			</div>
+			</div>
+			<!-- banner -->
+<div class="w3_banner" >
+	<div class="container">
+		<div class="slider">
+			<div class="callbacks_container">
+			   <ul class="rslides callbacks callbacks1" id="slider4">
+					<li>	
+						<div class="banner_text_w3layouts">
+							<h3>HI I AM WALLY WEST.</h3>
+							<span> </span>
+							<p>i am photographer </p>
+						</div>
+					</li>
+					 <li>	
+						<div class="banner_text_w3layouts">
+							<h3>I LOVE PHOTOGRAPHY.</h3>
+							<span> </span>
+							<p>I Photograph Models and Nature </p>
+						</div>
+					</li>
+					 <li>	
+						<div class="banner_text_w3layouts">
+							<h3>CHECK OUT MY PROFILE</h3>
+							<span> </span>
+							<p>Gallery </p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+	   </div>
+	</div>   
+</div>	
+<!-- //banner -->
+		</div>	
+			<!-- //header --> 
+	<!-- about -->
+	<div class="about" id="about">
+		<div class="container">
+			<div class="w3ls-titlew3l">
+				<h3>About Me</h3>
+			</div>
+			<div class="about-agileinfo"> 
+				<div class="col-md-4 col-sm-4 about-left ">
+					<img src="images/bio.jpg" class="img-responsive" alt=""/>
+				</div> 
+				<div class="col-md-8 col-sm-8 about-right wthree"> 
+					<h2>Hi, i'm <span>Wally West </span></h2>
+					<h4>photographer</h4>
+					<ul class="address">
+						<li>
+							<ul class="agileits-address-text ">
+								<li><b>D.O.B :</b></li>
+								<li>23-06-1989</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="agileits-address-text">
+								<li><b>PHONE : </b></li>
+								<li>+00 111 222 3333</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="agileits-address-text">
+								<li><b>ADDRESS :</b></li>
+								<li>756 st hill,south pole,U.S.A</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="agileits-address-text">
+								<li><b>E-MAIL :</b></li>
+								<li><a href="mailto:example@mail.com"> mail@example.com</a></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="agileits-address-text">
+								<li><b>WEBSITE :</b></li>
+								<li><a href="mailto:example@mail.com"> www.myresume.com</a></li>
+							</ul>
+						</li>
+					</ul> 
+					<div class="social-wthree-icons">
+						
+							<span class="fa fa-facebook icon" aria-hidden="true"> </span>
+							<span class="fa fa-twitter icon" aria-hidden="true"> </span>
+							<span class="fa fa-google-plus icon"  aria-hidden="true"></span>
+							<span class="fa fa-dribbble icon" aria-hidden="true"></span>
+						<div class="clearfix"> </div>
+					</div> 
+					<div class="hire-w3lgrids">
+						<a href="#" class="wthree-more nina" data-text="DOWNLOAD CV"> 
+							<span>D</span><span>o</span><span>w</span><span>n</span><span>l</span><span>o</span><span>a</span><span>d</span> <span>c</span><span>v</span>					
+						</a> 
+						<a href="#" class="wthree-more w3more1 nina" data-text="hire me"> 
+							<span>h</span><span>i</span><span>r</span><span>e</span> <span>m</span><span>e</span>
+						</a>
+					</div>  
+				</div> 
+				<div class="clearfix"> </div> 
+
+			</div> 
+		</div>
+	</div>
+	<!-- //about -->
+	<!-- skills -->
+	<div class="about-skills" id="skills">
+		<div class="container">
+			<div class="w3ls-titlew3">
+				<h3>My skills</h3>
+			</div>
+
+			<div class="skill-agileinfo">
+		
+				<div class="skill-grids">
+					<div class="col-md-4 col-sm-4 skills-w3lsleft">
+						<h4>Extra Skills</h4>
+						<ul>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>Painting</li>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>writer</li>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>music</li>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>swimming</li>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>football</li>
+							<li><span class="fa fa-check-square-o" aria-hidden="true"></span>cooking</li>
+
+						</ul>
+					</div>
+					<div class="col-md-8 col-sm-8 skills-w3lsright">
+						<h4>Technical Skills</h4>
+						<div class="skillbar" data-percent="98">
+							<span class="skillbar-title" style="background:#e08808;">Photographic</span>
+							<p class="skillbar-bar" style="background: #ff9d0d;"></p>
+							<span class="skill-bar-percent"></span>
+						</div>
+						<!-- End Skill Bar --> 
+						<div class="skillbar" data-percent="99">
+							<span class="skillbar-title" style="background:#0396d8;">Quality</span>
+							<p class="skillbar-bar" style="background:#03A9F4;"></p>
+							<span class="skill-bar-percent"></span>
+						</div>
+						<!-- End Skill Bar --> 
+						<div class="skillbar" data-percent="95">
+							<span class="skillbar-title" style="background:#9226a4;">Direction</span>
+							<p class="skillbar-bar" style="background:#b32eca;"></p>
+							<span class="skill-bar-percent"></span>
+						</div>
+						<!-- End Skill Bar --> 
+						<div class="skillbar" data-percent="70">
+							<span class="skillbar-title" style="background:#028679;">Edit</span>
+							<p class="skillbar-bar" style="background: #009688;"></p>
+							<span class="skill-bar-percent"></span>
+						</div>
+						<!-- End Skill Bar -->  
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+   
+			</div> 
+		</div> 
+	</div>
+	<!-- //skills -->
+<!--start-->
+
+<div class="count">
+						<div class="cir_agile_info ">
+									  <div class="skill-grids">
+											<div class="skills-grid text-center">
+												<div class="circle" id="circles-1"><div class="circles-wrp" style="position:relative; display:inline-block;"><svg width="160" height="160"><path fill="transparent" stroke="#ffffff" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 79.89582650464463 5.000072347482458 Z"></path><path fill="transparent" stroke="#fd9426" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 0 1 124.17351291284737 140.61106134146232 "></path></svg><div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:56px; height:160px; line-height:160px;"><span class="circles-number"><span class="circles-number">35</span></span><span class="circles-text">%</span></div></div></div>
+												<p>Awards</p>
+											</div>
+											<div class="skills-grid text-center">
+												<div class="circle" id="circles-2"><div class="circles-wrp" style="position:relative; display:inline-block;"><svg width="160" height="160"><path fill="transparent" stroke="#ffffff" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 79.89582650464463 5.000072347482458 Z"></path><path fill="transparent" stroke="#fc3158" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 80.05972450330499 154.9999762198876 "></path></svg><div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:56px; height:160px; line-height:160px;"><span class="circles-number"><span class="circles-number">45</span></span><span class="circles-text">%</span></div></div></div>
+												<p>Projects</p>
+											</div>
+											<div class="skills-grid text-center">
+												<div class="circle" id="circles-3"><div class="circles-wrp" style="position:relative;display:inline-block;"><svg width="160" height="160"><path fill="transparent" stroke="#ffffff" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 79.89582650464463 5.000072347482458 Z"></path><path fill="transparent" stroke="#53d769" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 35.98377886071055 140.7253841207873 "></path></svg><div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:56px; height:160px; line-height:160px;"><span class="circles-number"><span class="circles-number">55</span></span><span class="circles-text">%</span></div></div></div>
+												
+												<p>Followers</p>
+											</div>
+											<div class="skills-grid text-center">
+												<div class="circle" id="circles-4"><div class="circles-wrp" style="position:relative; display:inline-block;"><svg width="160" height="160"><path fill="transparent" stroke="#ffffff" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 79.89582650464463 5.000072347482458 Z"></path><path fill="transparent" stroke="#147efb" stroke-width="10" d="M 79.98472450972287 5.000001555604044 A 75 75 0 1 1 8.704055142281334 103.27849322540312 "></path></svg><div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:56px; height:160px; line-height:160px;"><span class="circles-number"><span class="circles-number">65</span></span><span class="circles-text">%</span></div></div></div>
+												<p>Happy clients</p>
+											</div>
+												
+								
 				
-				<div class="w3ls_footer_grid">
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
+										 <div class="clearfix"></div>
+										
+								</div>
+							</div>
+                     </div>
+	<!--//start-->
+
+		<!-- gallery -->
+		<div class="gallery" id="portfolio">
+		   <div class="container">
+			<div class="tittle-agileinfo">
+				<h3>Portfolio</h3>
+			</div>
+			<div class="w3ls_banner_bottom_grids ">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#designs" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Fashion</a></li>
+						<li role="presentation"><a href="#Alterations" role="tab" id="Alterations-tab" data-toggle="tab" aria-controls="Alterations">Events</a></li>
+						<li role="presentation"><a href="#Mending"  role="tab" id="Mending-tab" data-toggle="tab" aria-controls="Mending">Models</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="designs" aria-labelledby="home-tab">
+							<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-1.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-1.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-2.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-2.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+										
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+											<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-3.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-3.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+											
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-4.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-4.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+									
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+												<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-5.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-5.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+											
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-6.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-6.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+											
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-7.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-7.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+										
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/fashion-8.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/fashion-8.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Fashion</h4>
+											
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Location</h4>
-							<p>3030 New York, NY, USA</p>
+						<div role="tabpanel" class="tab-pane fade" id="Alterations" aria-labelledby="Alterations-tab">
+											<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/event-1.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/event-1.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+										<div class="wthree_text">
+												<h4>Events</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/event-2.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/event-2.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Events</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/event-3.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/event-3.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+												<div class="wthree_text">
+												<h4>Events</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/event-1.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/event-1.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Events</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="clearfix"> </div>
+						
+						<div role="tabpanel" class="tab-pane fade" id="Mending" aria-labelledby="Mending-tab">
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-1.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-1.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+										<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-2.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-2.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+									<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-3.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-3.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+										<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-1.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-1.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-5.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-5.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+										<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+													<div class="col-md-3 w3layouts_gallery_grid">
+								<a title="Portfolio" href="images/model-6.jpg">
+									<div class="w3layouts_team_grid">
+										<img src="images/model-6.jpg" alt=" " data-selector="img" class="img-responsive" />
+										<div class="w3layouts_team_grid_pos">
+											<div class="wthree_text">
+												<h4>Model</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
 					</div>
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Email</h4>
-							<a href="mailto:info@example.com">info@example.com</a>
-						</div>
-						<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- //gallery -->
+
+
+	<!-- education -->
+	<div class="about-education" id="education">
+		<div class="container">
+			<div class="w3ls-title">
+				<h3>Qualification</h3>
+			</div>
+			<div class="w3-agileits-expinfo">    
+				<div class="experience-grids">
+					<div class="experience-left">
+						<h6>2010<span>(3 Years)</span> </h6>
+						<h5> University Name</h5>
 					</div>
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-phone" aria-hidden="true"></i>
-						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Call Me</h4>
-							<p>(+000) 003 003 0052</p>
-						</div>
-						<div class="clearfix"> </div>
+					<div class="experience-right">
+						<h4>Diploma of Graphic Design</h4>
+						<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
 					</div>
 					<div class="clearfix"> </div>
-				</div>
+				</div> 
+				<div class="experience-grids experience-grids-btm">
+					<div class="experience-left">
+						<h6>2007<span>(3 Years)</span></h6>
+						<h5> University Name</h5>
+					</div>
+					<div class="experience-right">
+						<h4>Diploma in Photo Image</h4>
+						<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>  
+				<div class="experience-grids w3-agileits">
+					<div class="experience-left">
+						<h6>2006</h6>
+						<h5> University Name</h5>
+					</div>
+					<div class="experience-right">
+						<h4>Wild Photo Graphic</h4>
+						<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div> 
 			</div>
 		</div>
-		<div class="w3l_footer_pos">
-			<p>© 2017 C-Resume. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
+	</div>
+	<!-- //education -->
+
+
+	<!-- Booking -->
+	<div class="w3layoutsbooking" id="contact">
+		<div class="container">
+
+			<h3>Send Project</h3>
+
+			<div class="booking-form-aits">
+				<form action="#" method="post">
+					<input type="text" class="margin-right" Name="Name" placeholder="NAME" required="">
+					<input type="email" Name="Email" placeholder="EMAIL" required="">
+					<input type="text" class="margin-right" Name="Phone Number" placeholder="PHONE NUMBER" required="">
+					<input type="text" Name="Place" placeholder="PLACE" required="">
+					<textarea name="Message" placeholder="PROJECT DETAILS" required=""></textarea>
+					<div class="send-button agileits w3layouts">
+						<button class="btn btn-primary">SEND MESSAGE<span class="fa fa-long-arrow-right" aria-hidden="true"></span></button>
+					</div>
+				</form>
+			</div>
+
 		</div>
 	</div>
-<!-- //footer -->
-<script src="{% static 'aboutme/js/bars.js' %}"></script>
-<!-- start-smoth-scrolling -->
-<script src="{% static 'aboutme/js/SmoothScroll.min.js' %}"></script>
-<!-- text-effect -->
-		<script type="text/javascript" src="{% static 'aboutme/js/jquery.transit.js' %}"></script> 
-		<script type="text/javascript" src="{% static 'aboutme/js/jquery.textFx.js' %}"></script> 
+	<!-- //Booking -->
+
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<h3>Contact</h3>
+			
+
+			<div class="footer-grids">
+		   	  
+				<div class="address">
+					<h4>Address</h4>
+				
+							<p><span class="fa fa-map-marker"  aria-hidden="true"></span> 756 global Place</p>
+						    <p><span class="fa fa-map-marker"  aria-hidden="true"></span>south pole,U.S.A</p>
+						
+				</div>
+
+				<div class=" phone">
+					<h4>Phone</h4>
+					<p><span class="fa fa-phone" aria-hidden="true"></span> +1 (000) 123-4567</p>
+					<p><span class="fa fa-phone" aria-hidden="true"></span> +1 (112) 562-7114</p>
+				</div>
+              
+			   
+				<div class=" email">
+					<h4>Email</h4>
+					<p><span class="fa fa-envelope"  aria-hidden="true"></span> <a href="mailto:mail@example.com" class="info"> info@example.com</a></p>
+					<p><span class="fa fa-envelope"  aria-hidden="true"></span> <a href="mailto:mail@example.com" class="info"> info@photos.com</a></p>
+				</div>
+
+				<!-- Newsletter -->
+				<div class="newsletter">
+					<h4>Follow</h4>
+					 <span class="fa fa-facebook font-icon" aria-hidden="true"> </span>
+				     <span class="fa fa-twitter font-icon" aria-hidden="true"> </span>
+					 <span class="fa fa-google-plus font-icon"  aria-hidden="true"> </span>
+					 <span class="fa fa-dribbble font-icon" aria-hidden="true"> </span>
+					
+				</div>
+				<!-- //Newsletter -->
+				
+				<div class="clearfix"></div>
+				
+			</div>
+
+			<!-- Copyright -->
+			<div class="copyright">
+				<p>&copy; 2017 INNOVATIVE-cv . All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a><a href="#home" class="to-top scroll" title="To Top"><span class="fa fa-chevron-up"></span></a></p>
+			</div>
+			<!-- //Copyright -->
+
+		</div>
+	</div>
+	<!-- //Footer -->
+
+
+
+
+<script type='text/javascript' src="{% static 'aboutme/js/jquery-2.2.3.min.js' %}"></script>
+<!-- //js -->
+
+<!--menu script-->
+<script type="text/javascript" src="{% static 'aboutme/js/modernizr-2.6.2.min.js' %}"></script>
+<script src="{% static 'aboutme/js/bootstrap.min.js' %}"></script>	
+
+<!--Navbar-->
+<script type="text/javascript" src="{% static 'aboutme/js/main.js' %}"></script>
+<!--//Navbar-->
+<!--gallery -->
+		<script src="{% static 'aboutme/js/jquery.chocolat.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'aboutme/css/chocolat.css' %}" type="text/css" media="screen">
+		<!--light-box-files -->
 		<script type="text/javascript">
-			$(document).ready(function() {
-					$('.test').textFx({
-						type: 'fadeIn',
-						iChar: 100,
-						iAnim: 1000
-					});
+			$(function () {
+				$('.w3layouts_gallery_grid a').Chocolat();
 			});
 		</script>
-<!-- //text-effect -->
-<!-- menu-js --> 	
-	<script src="{% static 'aboutme/js/modernizr.js' %}"></script>	
-	<script src="{% static 'aboutme/js/menu.js' %}"></script>
-<!-- //menu-js --> 	
+		<!-- //gallery -->
 
 
-<script type="text/javascript" src="{% static 'aboutme/js/move-top.js' %}"></script>
-
-<script type="text/javascript" src="{% static 'aboutme/js/easing.js' %}"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		<!-- Skill Bar js --> 
+	<script src="{% static 'aboutme/js/skill.bars.jquery.js' %}"></script> 
+	<script> 
+	$(document).ready(function(){
+		
+		$('.skillbar').skillBars({
+			from: 0,
+			speed: 5000, 
+			interval: 300,
+			decimals: 0,
 		});
-	});
-</script>
-<!-- start-smoth-scrolling -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
+		
+	}); 
+	</script> 
+	<!-- //End Skill Bar js -->  
+	<!-- /circle-->
+	 <script type="text/javascript" src="{% static 'aboutme/js/circles.js' %}"></script>
+					         <script>
+								var colors = [
+										['#ffffff', '#e31de1'], ['#ffffff', '#51ffe8'],['#ffffff', '#0012bc'], ['#ffffff', '#bc000d']
+									];
+								for (var i = 1; i <= 7; i++) {
+									var child = document.getElementById('circles-' + i),
+										percentage = 25 + (i * 10);
+										
+									Circles.create({
+										id:         child.id,
+										percentage: percentage,
+										radius:     80,
+										width:      20,
+										number:   	percentage / 1,
+										text:       '%',
+										colors:     colors[i - 1]
+									});
+								}
+						
+				</script>
+	<!-- //circle -->
+	<!-- start-smoth-scrolling -->
+			<script type="text/javascript" src="{% static 'aboutme/js/move-top.js' %}"></script>
+			<script type="text/javascript" src="{% static 'aboutme/js/easing.js' %}"></script>
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},3000);
+					});
+				});
+			</script>
+		<!-- start-smoth-scrolling -->
+
+		<!-- Banner slider -->
+		  <script src="{% static 'aboutme/js/responsiveslides.min.js' %}"></script>
+		  <script>
+			// You can also use "$(window).load(function() {"
+			$(function () {
+			  // Slideshow 4
+			  $("#slider4").responsiveSlides({
+				auto: true,
+				pager:true,
+				nav:true,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+				  $('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+				  $('.events').append("<li>after event fired.</li>");
+				}
+			  });
+		
 			});
-	</script>
-
-
+		
+</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, UserChangeForm, ReadOnlyPasswordHashField
-from account.models import User, LdapUser
+from account.models import User
 
 TEAM_NAME_CHOICES = (
     ('팀을 선택해 주세요', '팀을 선택해 주세요'),
@@ -102,7 +102,7 @@ class RegisterForm(UserCreationForm):
     )
 
     class Meta:
-        model = LdapUser
+        model = User
         fields = ("username", "first_name", "last_name", "email", "phone")
 
     def save(self, commit=True):
@@ -185,7 +185,7 @@ class ProfileUpdateForm(UserChangeForm):
 
 
     class Meta:
-        model = LdapUser
+        model = User
         fields = ("username", "password", "first_name", "last_name", "email", "phone")
 
     def __init__(self, *args, **kwargs):

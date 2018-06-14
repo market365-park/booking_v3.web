@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from .views import return_room_view, GateView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', return_room_view, name='home'),
@@ -26,4 +28,4 @@ urlpatterns = [
 
 	path('gate/', GateView.as_view(), name='gate'),
     path('room/', include('room.urls', namespace='room')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
